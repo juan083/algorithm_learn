@@ -46,8 +46,8 @@ class Solution {
     }
 }
 
-$candidates = [1, 2, 3, 6, 7];
-$target = 2;
+$candidates = [2, 3, 6, 7];
+$target = 7;
 $solution = new Solution();
 $ret = $solution->combinationSum($candidates, $target);
 

@@ -1,13 +1,13 @@
 <?php
 /**
- * https://leetcode-cn.com/problems/combination-sum-ii/
- * 40. 组合总和 II
+ * 面试题（腾讯-动漫）
+ * 给定一个无重复数组a和一个数字S，通过加、减号，使得数组中的若干个数字之和等于S，求满足此条件的所有组合
  *
- * 思路：
- * 深度搜索dfs、回溯算法
- *
- * labuladong的算法小抄
- * https://labuladong.gitbook.io/algo/suan-fa-si-wei-xi-lie/3.1-hui-su-suan-fa-dfs-suan-fa-xi-lie/hui-su-suan-fa-xiang-jie-xiu-ding-ban
+ * 例如：
+ * 给定的数组：[1, 3, 4, 10, 2]
+ * 给定的数字：8
+ * 结果：
+ * [10, -2], [1, 3, 4], [-1, 3, -4, 10], [1, -3, 10]
  */
 
 class Solution
@@ -22,7 +22,7 @@ class Solution
      * @param Integer $target
      * @return Integer[][]
      */
-    function combinationSum2($candidates, $target)
+    function combinationSum3($candidates, $target)
     {
         sort($candidates);
         $this->dfs($candidates, $target, 0);
@@ -48,17 +48,24 @@ class Solution
             }
 
             // 回溯三部曲（先选择，再递归，后撤销选择）
+            // 正数
             $this->_combileArr[] = $candidates[$i];
             $this->dfs($candidates, $target - $candidates[$i], $i + 1);
+            array_pop($this->_combileArr);
+
+            // 负数
+            $this->_combileArr[] = -$candidates[$i];
+            $this->dfs($candidates, $target + $candidates[$i], $i + 1);
             array_pop($this->_combileArr);
         }
     }
 
 }
 
-$candidates = [10, 1, 2, 7, 6, 1, 5];
+//$candidates = [2, 3, 5, 10];
+$candidates = [1, 3, 4, 10, 2];
 $target = 8;
 $solution = new Solution();
-$ret = $solution->combinationSum2($candidates, $target);
+$ret = $solution->combinationSum3($candidates, $target);
 
 var_export($ret);
