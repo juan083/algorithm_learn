@@ -29,6 +29,8 @@ class Solution
         return $this->_result;
     }
 
+    // 要完成此题目，先弄明白leecode的39、40题 https://leetcode-cn.com/problems/combination-sum/
+    // 思路：深度优先算法DFS、回溯法
     function dfs($candidates, $target, $start) {
         if ($target == 0) {
             $this->_result[] = $this->_combileArr;
@@ -48,6 +50,7 @@ class Solution
             }
 
             // 回溯三部曲（先选择，再递归，后撤销选择）
+            // 学习文档（labuladong的算法小抄）：https://labuladong.gitbook.io/algo/suan-fa-si-wei-xi-lie/3.1-hui-su-suan-fa-dfs-suan-fa-xi-lie/hui-su-suan-fa-xiang-jie-xiu-ding-ban
             // 正数
             $this->_combileArr[] = $candidates[$i];
             $this->dfs($candidates, $target - $candidates[$i], $i + 1);
