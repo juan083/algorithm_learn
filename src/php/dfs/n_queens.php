@@ -20,14 +20,14 @@ class Solution {
 
     private $_ret = [];
 
-
+    private $_
     function solveNQueens($n) {
 
     }
 
     function dfs($n, $target) {
         if ($target >= $n) {
-
+            returnl
         }
     }
 }

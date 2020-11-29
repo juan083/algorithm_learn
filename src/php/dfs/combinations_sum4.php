@@ -6,28 +6,33 @@
  * 给定一个由正整数组成且不存在重复数字的数组，找出和为给定目标正整数的组合的个数。
  */
 
-class Solution {
+class Solution
+{
 
     private $_ret = [];
 
     private $_list = [];
+
+    private $_count = 0;
 
     /**
      * @param Integer[] $nums
      * @param Integer $target
      * @return Integer
      */
-    function combinationSum4($nums, $target) {
+    function combinationSum4($nums, $target)
+    {
         sort($nums);
         $this->dfs($nums, $target);
-        return count($this->_ret);
+        //return count($this->_ret);
+        return $this->_count;
     }
 
-    function dfs($nums, $target) {
-        if ($target <= 0) {
-            if ($target == 0) {
-                $this->_ret[] = $this->_list;
-            }
+    function dfs($nums, $target)
+    {
+        if ($target == 0) {
+            //$this->_ret[] = $this->_list;
+            $this->_count++;
             return;
         }
 
@@ -47,5 +52,5 @@ class Solution {
 $solution = new Solution();
 //$ret1 = $solution->combinationSum3(3, 7);
 //$ret1 = $solution->combinationSum4([1, 2, 3], 4);
-$ret1 = $solution->combinationSum4([4, 2, 1], 32);
+$ret1 = $solution->combinationSum4([4, 2, 1], 10);
 var_export($ret1);
