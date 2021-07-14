@@ -24,6 +24,7 @@ func rotate_2(nums []int, k int) {
 	k = k % l
 	index, item := 0, nums[0]
 	// 理清思路，这里混沌了一会
+	// 此算法有问题，不适用长度恰好能整除k的情况
 	for i := 0; i < l; i++ {
 		index = (index + k) % l
 		nums[index], item = item, nums[index]
@@ -65,16 +66,25 @@ func rotate_3(nums []int, k int) {
 	fmt.Println(nums)
 }
 
-func main() {
+func revert(nums []int, k int) {
+	for i, l := 0, len(nums); i < l/2; i++ {
+		nums[i], nums[l-1-i] = nums[l-1-i], nums[i]
+	}
+}
+
+func main_2() {
 	// 注意：!!!
 	// 所有参数都是值传递
 	// slice、map、channel也是值传递，即结构被复制，都是指向同一块内存卡，所以有错觉是引用传递
+	//nums, k := []int{1, 2, 3, 4, 5, 6, 7}, 3
 	nums, k := []int{1, 2, 3, 4, 5, 6, 7}, 3
-	rotate_1(nums, k)
+	//rotate_1(nums, k)
 
-	nums, k = []int{1, 2, 3, 4, 5, 6, 7}, 3
+	//nums, k = []int{1, 2, 3, 4, 5, 6, 7}, 3
+	nums, k = []int{-1, -100, 3, 9, 5, 3, 0}, 4
 	rotate_2(nums, k)
 
-	nums, k = []int{1, 2, 3, 4, 5, 6, 7}, 3
+	//nums, k = []int{1, 2, 3, 4, 5, 6, 7}, 3
+	nums, k = []int{-1, -100, 3, 9, 5, 3}, 4
 	rotate_3(nums, k)
 }
