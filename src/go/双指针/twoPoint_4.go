@@ -41,7 +41,7 @@ func twoSum(numbers []int, target int) []int {
 	return []int{}
 }
 
-func main() {
+func main_4() {
 	//numbers, target := []int{2, 7, 11, 15}, 9
 	//numbers, target := []int{3, 24, 50, 79, 88, 150, 345}, 200
 	numbers, target := []int{-1, 0}, -1
