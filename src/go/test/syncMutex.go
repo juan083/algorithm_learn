@@ -32,12 +32,12 @@ func sync2() {
 	wg.Done()
 }
 
-func main() {
-	// 利用Sync.Mutex 的 Lock 控制并发
-	go sync1()
-	time.Sleep(time.Microsecond * 100)
-	fmt.Println("start sync 2")
-	go sync2()
-	wg.Wait()
-	fmt.Println("main:", ret)
-}
+//func main() {
+//	// 利用Sync.Mutex 的 Lock 控制并发
+//	go sync1()
+//	time.Sleep(time.Microsecond * 100)
+//	fmt.Println("start sync 2")
+//	go sync2()
+//	wg.Wait()
+//	fmt.Println("main:", ret)
+//}

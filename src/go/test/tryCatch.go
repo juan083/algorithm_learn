@@ -16,6 +16,6 @@ func tryCatch() {
 	panic("error_1")
 }
 
-func main_2() {
-	tryCatch()
-}
+//func main() {
+//	tryCatch()
+//}

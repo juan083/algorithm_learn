@@ -1,9 +1,5 @@
 package main
 
-import (
-	"fmt"
-)
-
 func mergeSort(arr []int) []int {
 	if len(arr) < 2 {
 		return arr
@@ -39,9 +35,9 @@ func merge(left, right []int) []int {
 	return result
 }
 
-func main() {
-	arr := []int{1, 9, 4, 3, 9}
-	//arr := []int{9, 5, 7, 4, 6, 3, 2, 8, 1}
-	result := mergeSort(arr)
-	fmt.Println(result)
-}
+//func main() {
+//	arr := []int{1, 9, 4, 3, 9}
+//	//arr := []int{9, 5, 7, 4, 6, 3, 2, 8, 1}
+//	result := mergeSort(arr)
+//	fmt.Println(result)
+//}
